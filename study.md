@@ -19,7 +19,11 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+Obeject-Relational Mapping (ORM) is a process by which objects used in a
+programming language are converted into data types that can be stored in a
+database and back again. This acts as the connection between a programming
+language and a database, and allows for complex objects to be stored and
+retrieved very easily
 ```
 
 ## Name model files and classes
@@ -29,19 +33,19 @@ application. What would I name the file where I define the model for this
 entity?
 
 ```md
-<!-- your response here -->
+person.rb
 ```
 
 What would I name the class for this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 What would I name the database table for this entity?
 
 ```md
-<!-- your response here -->
+people
 ```
 
 ## Reference documentation for CRUD
@@ -50,13 +54,15 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another required method for persistence?
 
 ```md
-<!-- your response here -->
+The .create method creates new objects, however it does not commit it to the
+database. In order to save the object, we use the .save method after calling
+.create
 ```
 
 Which ActiveRecord method finds all records of a certain type (or entity)?
 
 ```md
-<!-- your response here -->
+.all is used to access all records of a certain type
 ```
 
 ## Explain the role of migrations
@@ -64,7 +70,9 @@ Which ActiveRecord method finds all records of a certain type (or entity)?
 In your own words, define migrations and explain why developers use them.
 
 ```md
-<!-- your response here -->
+A migration is an update to the schema of a database. Developers use them
+so that the structure of a database (tables, columns, etc) can evolve over
+time without having to code a lot of SQL to keep things functioning correctly
 ```
 
 ## Reference documentation for migrations
@@ -73,13 +81,13 @@ In ActiveRecord Migrations, what is the name of the method the creates a new
 table?
 
 ```md
-<!-- your response here -->
+create_table
 ```
 
 What is the name of the method that creates a new column?
 
 ```md
-<!-- your response here -->
+add_column
 ```
 
 I want to create a table called `pets` with columns `name` and `breed`, both
@@ -87,7 +95,10 @@ strings. `name` cannot be blank and must be unique. Write the migration you
 would use to satisfy these requirements.
 
 ```ruby
-# your response here
+create_table :pets do |p|
+  p.string :name null: false, uniqueness: true
+  p.string :breed
+end
 ```
 
 ## Explain the role of seed data
@@ -95,11 +106,13 @@ would use to satisfy these requirements.
 In your own words, explain the role of application seed data.
 
 ```md
-<!-- your response here -->
+Seed data put some initial data into a database when it is created. This allows
+the developer to ensure that the database iw working properly
 ```
 
 Should you use seeds to create data to experiment with during development?
 
 ```md
-<!-- your response here -->
+Yes, seeds should be used in rails, as it is far simpler and thus harder
+to mess up than writing a migration to seed a database
 ```
