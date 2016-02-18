@@ -22,8 +22,6 @@ In your own words, define ORM and explain why using an ORM is valuable.
 Object-Relational Mapping (ORM)is a method that maps an application objects to a table in a relational database management system. It is valuable because you do not need to write SQL statements directly and you do not need to use that much database access code in order to store and retrieve properties and relationships of an object from a database.
 
 
-is a technique that connects the rich objects of an application to tables in a relational database management system. Using ORM, the properties and relationships of the objects in an application can be easily stored and retrieved from a database without writing SQL statements directly and with less overall database access code.
-
 ```
 
 ## Name model files and classes
@@ -33,7 +31,7 @@ application. What would I name the file where I define the model for this
 entity?
 
 ```md
-people.sql
+person.rb
 ```
 
 What would I name the class for this entity?
@@ -54,7 +52,7 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another required method for persistence?
 
 ```md
-create method will generate and save a new record to the database. New method
+create method will generate and save a new record to the database. You also use new method
 ```
 
 Which ActiveRecord method finds all records of a certain type (or entity)?
@@ -69,7 +67,6 @@ In your own words, define migrations and explain why developers use them.
 
 ```md
 Migration is a langauge that Rails provides. It is used to manage/modify a database schema.
-Developers use them because  ???????????
 ```
 
 ## Reference documentation for migrations
@@ -92,9 +89,13 @@ strings. `name` cannot be blank and must be unique. Write the migration you
 would use to satisfy these requirements.
 
 ```ruby
-create_table :pet do |t|
-  t.string = name, validates
-  t.string = breed
+class Create_Pets < ActiveRecord::Migration
+def change
+create_table :pets do |t|
+      t.string :name, :unique => true, :null => false
+      t.string :breed
+    end
+  end
 end
 ```
 
