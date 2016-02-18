@@ -19,7 +19,8 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+Object Relational Mapping is cool because you can have predetermined quries linked to classes.
+It helps isolate one language from another.
 ```
 
 ## Name model files and classes
@@ -29,19 +30,19 @@ application. What would I name the file where I define the model for this
 entity?
 
 ```md
-<!-- your response here -->
+People
 ```
 
 What would I name the class for this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 What would I name the database table for this entity?
 
 ```md
-<!-- your response here -->
+Table name would be 'people'
 ```
 
 ## Reference documentation for CRUD
@@ -50,13 +51,14 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another required method for persistence?
 
 ```md
-<!-- your response here -->
+You would have to use ActiveRecord method of 'new'.
+"Any change is instantly reflected in the Active Record objects.""
 ```
 
 Which ActiveRecord method finds all records of a certain type (or entity)?
 
 ```md
-<!-- your response here -->
+The ActiveRecord method of 'where' would be used to find all records of a certain type.
 ```
 
 ## Explain the role of migrations
@@ -64,7 +66,8 @@ Which ActiveRecord method finds all records of a certain type (or entity)?
 In your own words, define migrations and explain why developers use them.
 
 ```md
-<!-- your response here -->
+Migrations are a way to change/update your database layout in an easy way.
+Developers use them so they don't have to write SQL quries constanly. They can spend more time working on projects vs spending most of there time woking on a data base.
 ```
 
 ## Reference documentation for migrations
