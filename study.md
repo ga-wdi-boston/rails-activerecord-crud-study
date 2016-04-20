@@ -19,7 +19,8 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM stands for Object-Relational Mapping. ORM converts data into objects and places them in a table (and vice versa).
+ORM is valuable because it easily stores data from an app and also easily retrieves data from a database.
 ```
 
 ## Name model files and classes
@@ -29,19 +30,19 @@ application. What would I name the file where I define the model for this
 entity?
 
 ```md
-<!-- your response here -->
+person
 ```
 
 What would I name the class for this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 What would I name the database table for this entity?
 
 ```md
-<!-- your response here -->
+People
 ```
 
 ## Reference documentation for CRUD
@@ -50,13 +51,13 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another required method for persistence?
 
 ```md
-<!-- your response here -->
+Create - This method persists objects as rows in the DB.
 ```
 
 Which ActiveRecord method finds all records of a certain type (or entity)?
 
 ```md
-<!-- your response here -->
+Read
 ```
 
 ## Explain the role of migrations
@@ -64,7 +65,7 @@ Which ActiveRecord method finds all records of a certain type (or entity)?
 In your own words, define migrations and explain why developers use them.
 
 ```md
-<!-- your response here -->
+Migrations manage a DB schema. They are then performed against a DB.
 ```
 
 ## Reference documentation for migrations
@@ -73,13 +74,13 @@ In ActiveRecord Migrations, what is the name of the method the creates a new
 table?
 
 ```md
-<!-- your response here -->
+create_table
 ```
 
 What is the name of the method that creates a new column?
 
 ```md
-<!-- your response here -->
+add_column
 ```
 
 I want to create a table called `pets` with columns `name` and `breed`, both
@@ -87,7 +88,11 @@ strings. `name` cannot be blank and must be unique. Write the migration you
 would use to satisfy these requirements.
 
 ```ruby
-# your response here
+create_table :pets
+  t.string :name, null: false
+  t.string :breed
+end
+
 ```
 
 ## Explain the role of seed data
@@ -95,11 +100,11 @@ would use to satisfy these requirements.
 In your own words, explain the role of application seed data.
 
 ```md
-<!-- your response here -->
+Seed data is anything that needs to be loaded in order for an app to run.
 ```
 
 Should you use seeds to create data to experiment with during development?
 
 ```md
-<!-- your response here -->
+Yes
 ```
