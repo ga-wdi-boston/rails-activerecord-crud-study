@@ -19,7 +19,10 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM basically connects objects in an app to a database in a way that makes transferring/
+saving/updating/deleting info to that database really simple.  The table in the
+database relates to a class and the records in that table relate to instances of
+that particular class.
 ```
 
 ## Name model files and classes
@@ -29,19 +32,20 @@ application. What would I name the file where I define the model for this
 entity?
 
 ```md
-<!-- your response here -->
+person_model.rb
+
 ```
 
 What would I name the class for this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 What would I name the database table for this entity?
 
 ```md
-<!-- your response here -->
+people
 ```
 
 ## Reference documentation for CRUD
@@ -50,13 +54,14 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another required method for persistence?
 
 ```md
-<!-- your response here -->
+.new creates new objects but you would have to use .save to save them to the
+database.  To do both at once, you could use .create
 ```
 
 Which ActiveRecord method finds all records of a certain type (or entity)?
 
 ```md
-<!-- your response here -->
+.find_by
 ```
 
 ## Explain the role of migrations
@@ -64,7 +69,9 @@ Which ActiveRecord method finds all records of a certain type (or entity)?
 In your own words, define migrations and explain why developers use them.
 
 ```md
-<!-- your response here -->
+Migration allows you to add or delete something from a table by writing Ruby, not
+SQL.  Each migration is like a snapshot of the table at a point in time.  Developers
+use them because they are comparatively easier than writing out SQL.
 ```
 
 ## Reference documentation for migrations
@@ -73,13 +80,13 @@ In ActiveRecord Migrations, what is the name of the method the creates a new
 table?
 
 ```md
-<!-- your response here -->
+create_table
 ```
 
 What is the name of the method that creates a new column?
 
 ```md
-<!-- your response here -->
+add_column
 ```
 
 I want to create a table called `pets` with columns `name` and `breed`, both
@@ -87,7 +94,10 @@ strings. `name` cannot be blank and must be unique. Write the migration you
 would use to satisfy these requirements.
 
 ```ruby
-# your response here
+create_table :pets do |t|
+  t.string :name, null: false :unique => true
+  t.string :breed
+end
 ```
 
 ## Explain the role of seed data
@@ -95,11 +105,12 @@ would use to satisfy these requirements.
 In your own words, explain the role of application seed data.
 
 ```md
-<!-- your response here -->
+Seed data feeds default values to a new database without having to include it in
+a migration.
 ```
 
 Should you use seeds to create data to experiment with during development?
 
 ```md
-<!-- your response here -->
-```
+Yes.
+s```
