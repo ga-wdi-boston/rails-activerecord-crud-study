@@ -19,7 +19,9 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM stands for Object Relational Mapping. ORM allows an object's relationship and property
+to be easily stored and retrieved from within a database. This technique requires no
+direct SQL statements to be writtten.
 ```
 
 ## Name model files and classes
@@ -29,19 +31,19 @@ application. What would I name the file where I define the model for this
 entity?
 
 ```md
-<!-- your response here -->
+People
 ```
 
 What would I name the class for this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 What would I name the database table for this entity?
 
 ```md
-<!-- your response here -->
+People
 ```
 
 ## Reference documentation for CRUD
@@ -50,13 +52,13 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another required method for persistence?
 
 ```md
-<!-- your response here -->
-```
+The create method creates new objects. and this method will persist objects as
+rows in a database.```
 
 Which ActiveRecord method finds all records of a certain type (or entity)?
 
 ```md
-<!-- your response here -->
+Read
 ```
 
 ## Explain the role of migrations
@@ -64,7 +66,9 @@ Which ActiveRecord method finds all records of a certain type (or entity)?
 In your own words, define migrations and explain why developers use them.
 
 ```md
-<!-- your response here -->
+Migrations allow developers to easily update a database's schema in a consistent manner. SQL
+scripts are not needed.
+
 ```
 
 ## Reference documentation for migrations
@@ -73,13 +77,13 @@ In ActiveRecord Migrations, what is the name of the method the creates a new
 table?
 
 ```md
-<!-- your response here -->
+create_table
 ```
 
 What is the name of the method that creates a new column?
 
 ```md
-<!-- your response here -->
+t.'name of column'
 ```
 
 I want to create a table called `pets` with columns `name` and `breed`, both
@@ -87,7 +91,11 @@ strings. `name` cannot be blank and must be unique. Write the migration you
 would use to satisfy these requirements.
 
 ```ruby
-# your response here
+
+create_table :pets do |t|
+  t.string :name
+  t. string :description
+end
 ```
 
 ## Explain the role of seed data
