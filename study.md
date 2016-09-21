@@ -19,7 +19,11 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM: Object Relational Mapping. ORM stores the relationships between objects
+in databases on the server. Said databases can be stored and accessed without
+having to take the extra step of writing SQL statements.
+ActiveRecord is one such ORM.
+http://guides.rubyonrails.org/active_record_basics.html#active-record-as-an-orm-framework
 ```
 
 ## Name model files and classes
@@ -29,19 +33,22 @@ application. What would I name the file where I define the model for this
 entity?
 
 ```md
-<!-- your response here -->
+people
+http://guides.rubyonrails.org/active_record_basics.html#active-record-as-an-orm-framework
 ```
 
 What would I name the class for this entity?
 
 ```md
-<!-- your response here -->
+People
+http://guides.rubyonrails.org/active_record_basics.html#active-record-as-an-orm-framework
 ```
 
 What would I name the database table for this entity?
 
 ```md
-<!-- your response here -->
+people
+http://guides.rubyonrails.org/active_record_basics.html#active-record-as-an-orm-framework
 ```
 
 ## Reference documentation for CRUD
@@ -50,13 +57,15 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another required method for persistence?
 
 ```md
-<!-- your response here -->
+Create
+http://guides.rubyonrails.org/active_record_basics.html#create
 ```
 
 Which ActiveRecord method finds all records of a certain type (or entity)?
 
 ```md
-<!-- your response here -->
+.where
+http://guides.rubyonrails.org/active_record_querying.html
 ```
 
 ## Explain the role of migrations
@@ -64,7 +73,12 @@ Which ActiveRecord method finds all records of a certain type (or entity)?
 In your own words, define migrations and explain why developers use them.
 
 ```md
-<!-- your response here -->
+Migrations allow you to make incremental and reversible changes without having
+to manually write SQL. Each migration is essentially an update to the
+database: tables, columns, and entries may be added and removed; and it even
+adheres to any changes in the STRUCTURE of the database. Migration is a
+relatively simple way of implementing multiple updates.
+http://guides.rubyonrails.org/active_record_migrations.html
 ```
 
 ## Reference documentation for migrations
@@ -73,13 +87,15 @@ In ActiveRecord Migrations, what is the name of the method the creates a new
 table?
 
 ```md
-<!-- your response here -->
+create_table
+http://guides.rubyonrails.org/active_record_migrations.html#creating-a-table
 ```
 
 What is the name of the method that creates a new column?
 
 ```md
-<!-- your response here -->
+add_column
+http://guides.rubyonrails.org/active_record_migrations.html#creating-a-table
 ```
 
 I want to create a table called `pets` with columns `name` and `breed`, both
@@ -87,7 +103,15 @@ strings. `name` cannot be blank and must be unique. Write the migration you
 would use to satisfy these requirements.
 
 ```ruby
-# your response here
+class CreatePets < ActiveRecord::Migration
+  def change
+    create_table :pets do |t|
+      t.string :name, :null => false, unique: true
+      t.string :breed
+    end
+  end
+end
+# http://stackoverflow.com/questions/21635825/how-to-create-a-new-table-with-a-unique-index-in-an-active-record-rails-4-migr
 ```
 
 ## Explain the role of seed data
@@ -95,11 +119,14 @@ would use to satisfy these requirements.
 In your own words, explain the role of application seed data.
 
 ```md
-<!-- your response here -->
+Seeds adds initial data to the database AFTER the database is created.
+http://guides.rubyonrails.org/active_record_migrations.html#migrations-and-seed-data
 ```
 
 Should you use seeds to create data to experiment with during development?
 
 ```md
-<!-- your response here -->
+Yes, because the process is quick, making it easy when frequently reloading
+the database during the development process.
+http://guides.rubyonrails.org/active_record_migrations.html#migrations-and-seed-data
 ```
