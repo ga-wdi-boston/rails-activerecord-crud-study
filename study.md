@@ -62,7 +62,8 @@ as rows in the database, or is there another required method for persistence?
 
 ```md
 
-.new creates new objects, but doesn't save them. .save saves them to the database. (.create will create a new object and save it to the database.)
+.new creates new objects, but doesn't save them save saves them to the database
+.(create will create a new object and save it to the database)
 
 ```
 
@@ -80,7 +81,10 @@ In your own words, define migrations and explain why developers use them.
 
 ```md
 
-Migrations are files that alter your database: adding or dropping tables, updating columns, etc. They track the evolution of your database structure over time and let you make changes, revert changes, and recreate from scratch in a different environment.
+Migrations are files that alter your database: adding or dropping tables,
+updating columns, etc. They track the evolution of your database structure over
+time and let you make changes, revert changes, and recreate from scratch in a
+different environment.
 
 ```
 
@@ -120,8 +124,9 @@ end
 
 In your own words, explain the role of application seed data.
 
-```md
-Seed data lets you add information to your database quickly and in bulk, which helps with testing. 
+```md 
+Seed data lets you add information to your database quickly and in bulk,
+which helps with testing.  
 ```
 
 Should you use seeds to create data to experiment with during development?
