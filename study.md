@@ -19,7 +19,19 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+Object Relational Mapping or ORM is a way to maintain the complexity of objects,
+found in object-oriented programming, even when that information is stored in a
+database. The ORM uses tables to maintain this complexity, where information in
+one table has interactions with information in other tables to show
+relationships of the object's various parts.
+
+Databases are generally not set up to adequately respresent complex objects, ORM
+allows relationships to remain intact without having to write extra
+code to break down the object into database sized pieces.
+
+resources used:
+https://en.wikipedia.org/wiki/Object-relational_mapping
+http://guides.rubyonrails.org/active_record_basics.html
 ```
 
 ## Name model files and classes
@@ -29,19 +41,22 @@ application. What would I name the file where I define the model for this
 entity?
 
 ```md
-<!-- your response here -->
+Person.
 ```
 
 What would I name the class for this entity?
 
 ```md
-<!-- your response here -->
+class Person.
 ```
 
 What would I name the database table for this entity?
 
 ```md
-<!-- your response here -->
+people.
+
+resources used:
+http://guides.rubyonrails.org/active_record_migrations.html
 ```
 
 ## Reference documentation for CRUD
@@ -50,13 +65,17 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another required method for persistence?
 
 ```md
-<!-- your response here -->
+.create or .new
+create: makes the object and saves it to the database
+new: makes the object, but doesn't save it
+  -if you want to save an object created with 'new', you also have to use the
+  save method
 ```
 
 Which ActiveRecord method finds all records of a certain type (or entity)?
 
 ```md
-<!-- your response here -->
+.all
 ```
 
 ## Explain the role of migrations
@@ -64,7 +83,8 @@ Which ActiveRecord method finds all records of a certain type (or entity)?
 In your own words, define migrations and explain why developers use them.
 
 ```md
-<!-- your response here -->
+Migrations are a way of altering tables in your database and keeping track of
+those changes, all while having Rails create the necessary SQL commands for you.
 ```
 
 ## Reference documentation for migrations
@@ -73,13 +93,13 @@ In ActiveRecord Migrations, what is the name of the method the creates a new
 table?
 
 ```md
-<!-- your response here -->
+change
 ```
 
 What is the name of the method that creates a new column?
 
 ```md
-<!-- your response here -->
+change
 ```
 
 I want to create a table called `pets` with columns `name` and `breed`, both
@@ -87,7 +107,12 @@ strings. `name` cannot be blank and must be unique. Write the migration you
 would use to satisfy these requirements.
 
 ```ruby
-# your response here
+class CreatePets < ActiveRecord::Migration[5.0]
+  def change
+    create_table :pets do |t|
+      t.string :name, null: false, uniqueness: true
+      t.string :breed
+end
 ```
 
 ## Explain the role of seed data
@@ -95,11 +120,14 @@ would use to satisfy these requirements.
 In your own words, explain the role of application seed data.
 
 ```md
-<!-- your response here -->
+Seed data is sample information which allows the developer to see how their
+application will handle data, without the developer having to go out and collect
+information. Seed data can be used to evaluate if written code manipulates the
+data as expected.
 ```
 
 Should you use seeds to create data to experiment with during development?
 
 ```md
-<!-- your response here -->
+Yes.
 ```
