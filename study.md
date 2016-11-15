@@ -73,13 +73,13 @@ In ActiveRecord Migrations, what is the name of the method the creates a new
 table?
 
 ```md
-<!-- your response here -->
+create_table
 ```
 
 What is the name of the method that creates a new column?
 
 ```md
-<!-- your response here -->
+add_column
 ```
 
 I want to create a table called `pets` with columns `name` and `breed`, both
@@ -87,7 +87,8 @@ strings. `name` cannot be blank and must be unique. Write the migration you
 would use to satisfy these requirements.
 
 ```ruby
-# your response here
+create_table :pets
+add_column :'name', :'breed'
 ```
 
 ## Explain the role of seed data
@@ -95,11 +96,11 @@ would use to satisfy these requirements.
 In your own words, explain the role of application seed data.
 
 ```md
-<!-- your response here -->
+what is needed to make an application work and run the first time so that it can be quickly modified to what is needed for a more specific project.
 ```
 
 Should you use seeds to create data to experiment with during development?
 
 ```md
-<!-- your response here -->
+yes.
 ```
