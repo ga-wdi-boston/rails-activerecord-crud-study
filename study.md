@@ -19,7 +19,8 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+Object relational mapping saves us from having to do additional coding in SQL.
+It relates objects in our program to tables, or entries in a table.
 ```
 
 ## Name model files and classes
@@ -29,19 +30,19 @@ application. What would I name the file where I define the model for this
 entity?
 
 ```md
-<!-- your response here -->
+person.rb
 ```
 
 What would I name the class for this entity?
 
 ```md
-<!-- your response here -->
+person
 ```
 
 What would I name the database table for this entity?
 
 ```md
-<!-- your response here -->
+people
 ```
 
 ## Reference documentation for CRUD
@@ -50,13 +51,15 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another required method for persistence?
 
 ```md
-<!-- your response here -->
+.create # makes a new object and adds them to the database
+.new    # makes a new object without updating database
+.save   # saves an object to the database
 ```
 
 Which ActiveRecord method finds all records of a certain type (or entity)?
 
 ```md
-<!-- your response here -->
+.where
 ```
 
 ## Explain the role of migrations
@@ -64,7 +67,8 @@ Which ActiveRecord method finds all records of a certain type (or entity)?
 In your own words, define migrations and explain why developers use them.
 
 ```md
-<!-- your response here -->
+Developers use Migrations to avoid coding additional SQL and save time.
+Migrations allow for some form of version control and updating databases.
 ```
 
 ## Reference documentation for migrations
@@ -73,13 +77,13 @@ In ActiveRecord Migrations, what is the name of the method the creates a new
 table?
 
 ```md
-<!-- your response here -->
+create_table
 ```
 
 What is the name of the method that creates a new column?
 
 ```md
-<!-- your response here -->
+add_column
 ```
 
 I want to create a table called `pets` with columns `name` and `breed`, both
