@@ -19,7 +19,7 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM is a tool for mapping data in a way it can be used by separate incompatible systems. This is valuable because it makes it easier to transfer data between different parts of a database system all the way through to the front end.
 ```
 
 ## Name model files and classes
@@ -29,19 +29,19 @@ application. What would I name the file where I define the model for this
 entity?
 
 ```md
-<!-- your response here -->
+it should be called 'people'
 ```
 
 What would I name the class for this entity?
 
 ```md
-<!-- your response here -->
+'Person'
 ```
 
 What would I name the database table for this entity?
 
 ```md
-<!-- your response here -->
+'people'
 ```
 
 ## Reference documentation for CRUD
@@ -50,7 +50,9 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another required method for persistence?
 
 ```md
-<!-- your response here -->
+class ClassName < ApplicationRecord
+end
+that will map the object as a table
 ```
 
 Which ActiveRecord method finds all records of a certain type (or entity)?
@@ -64,7 +66,7 @@ Which ActiveRecord method finds all records of a certain type (or entity)?
 In your own words, define migrations and explain why developers use them.
 
 ```md
-<!-- your response here -->
+Migrations are a domain-specific language for managing database schemes.
 ```
 
 ## Reference documentation for migrations
@@ -73,13 +75,13 @@ In ActiveRecord Migrations, what is the name of the method the creates a new
 table?
 
 ```md
-<!-- your response here -->
+create_table :table_name do |t|
 ```
 
 What is the name of the method that creates a new column?
 
 ```md
-<!-- your response here -->
+As near as I can tell columns can be refferenced as a property of the table though I'm probably wrong.
 ```
 
 I want to create a table called `pets` with columns `name` and `breed`, both
@@ -87,7 +89,16 @@ strings. `name` cannot be blank and must be unique. Write the migration you
 would use to satisfy these requirements.
 
 ```ruby
-# your response here
+class CreatePetsTable < ActiveRecord::Migration[5.0]
+  def change
+    create_table :pets do |t|
+      t.string :name, :breed
+
+      t.timestamps
+    end
+    add_index :pets
+  end
+end
 ```
 
 ## Explain the role of seed data
@@ -95,11 +106,11 @@ would use to satisfy these requirements.
 In your own words, explain the role of application seed data.
 
 ```md
-<!-- your response here -->
+Its adds innitial values to tables.
 ```
 
 Should you use seeds to create data to experiment with during development?
 
 ```md
-<!-- your response here -->
+Yes, it will allow a developer to test systems without propper data.
 ```
