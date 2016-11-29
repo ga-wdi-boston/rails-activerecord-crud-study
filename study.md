@@ -20,6 +20,8 @@ In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
 <!-- your response here -->
+Object Relational Mapping connects objects in an application to tables in a database
+
 ```
 
 ## Name model files and classes
@@ -30,18 +32,21 @@ entity?
 
 ```md
 <!-- your response here -->
+person
 ```
 
 What would I name the class for this entity?
 
 ```md
 <!-- your response here -->
+Person
 ```
 
 What would I name the database table for this entity?
 
 ```md
 <!-- your response here -->
+people
 ```
 
 ## Reference documentation for CRUD
@@ -51,12 +56,16 @@ as rows in the database, or is there another required method for persistence?
 
 ```md
 <!-- your response here -->
+.new()
+.save()
+.create()
 ```
 
 Which ActiveRecord method finds all records of a certain type (or entity)?
 
 ```md
 <!-- your response here -->
+.where()
 ```
 
 ## Explain the role of migrations
@@ -65,6 +74,7 @@ In your own words, define migrations and explain why developers use them.
 
 ```md
 <!-- your response here -->
+migrations are bits of code that make creating a new table fast and easy.
 ```
 
 ## Reference documentation for migrations
@@ -74,12 +84,14 @@ table?
 
 ```md
 <!-- your response here -->
+create_table
 ```
 
 What is the name of the method that creates a new column?
 
 ```md
 <!-- your response here -->
+create_column
 ```
 
 I want to create a table called `pets` with columns `name` and `breed`, both
@@ -88,6 +100,10 @@ would use to satisfy these requirements.
 
 ```ruby
 # your response here
+create_table :pets do |t|
+  t.string :name, null, presence: true
+  t.string :breed, null, presence: true
+end
 ```
 
 ## Explain the role of seed data
@@ -96,10 +112,12 @@ In your own words, explain the role of application seed data.
 
 ```md
 <!-- your response here -->
+to add initial data to a database
 ```
 
 Should you use seeds to create data to experiment with during development?
 
 ```md
 <!-- your response here -->
+yes
 ```
