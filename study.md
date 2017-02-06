@@ -14,7 +14,7 @@ material. Instead, digest what you've read and repeat it in your own voice.
 -   [ActiveRecord::Base](http://api.rubyonrails.org/classes/ActiveRecord/Base.html)
 -   [Active Record Migrations — Ruby on Rails Guides](http://guides.rubyonrails.org/active_record_migrations.html)
 
-## Explain why an ORM is valuable
+## Explain Why an ORM Is Valuable
 
 In your own words, define ORM and explain why using an ORM is valuable.
 
@@ -22,7 +22,7 @@ In your own words, define ORM and explain why using an ORM is valuable.
 <!-- your response here -->
 ```
 
-## Name model files and classes
+## Name Model Files and Xlasses
 
 Suppose I have an entity called "Person" that represents people in my
 application. What would I name the file where I define the model for this
@@ -44,7 +44,7 @@ What would I name the database table for this entity?
 <!-- your response here -->
 ```
 
-## Reference documentation for CRUD
+## Reference Documentation for CRUD
 
 Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another required method for persistence?
@@ -59,7 +59,7 @@ Which ActiveRecord method finds all records of a certain type (or entity)?
 <!-- your response here -->
 ```
 
-## Explain the role of migrations
+## Explain the Role of Migrations
 
 In your own words, define migrations and explain why developers use them.
 
@@ -67,7 +67,7 @@ In your own words, define migrations and explain why developers use them.
 <!-- your response here -->
 ```
 
-## Reference documentation for migrations
+## Reference Documentation for Migrations
 
 In ActiveRecord Migrations, what is the name of the method the creates a new
 table?
@@ -90,7 +90,7 @@ would use to satisfy these requirements.
 # your response here
 ```
 
-## Explain the role of seed data
+## Explain the Role of Seed Data
 
 In your own words, explain the role of application seed data.
 
