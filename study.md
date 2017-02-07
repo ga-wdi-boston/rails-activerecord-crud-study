@@ -11,10 +11,13 @@ material. Instead, digest what you've read and repeat it in your own voice.
 ## Required Readings
 
 -   [Active Record Basics — Ruby on Rails Guides](http://guides.rubyonrails.org/active_record_basics.html)
--   [ActiveRecord::Base](http://api.rubyonrails.org/classes/ActiveRecord/Base.html)
--   [Active Record Migrations — Ruby on Rails Guides](http://guides.rubyonrails.org/active_record_migrations.html)
+    (up to and including chapter 6)
 
-## Explain why an ORM is valuable
+## Additional Resources
+-   [ActiveRecord::Base](http://api.rubyonrails.org/classes/ActiveRecord/Base.html)
+-   [Object-relational mapping - Wikipedia](https://en.wikipedia.org/wiki/Object-relational_mapping)
+
+## Explain Why an ORM Is Valuable
 
 In your own words, define ORM and explain why using an ORM is valuable.
 
@@ -22,84 +25,100 @@ In your own words, define ORM and explain why using an ORM is valuable.
 <!-- your response here -->
 ```
 
-## Name model files and classes
+## Naming Models
 
-Suppose I have an entity called "Person" that represents people in my
-application. What would I name the file where I define the model for this
-entity?
-
-```md
-<!-- your response here -->
-```
-
-What would I name the class for this entity?
+Suppose that there is an entity called "Person" that represents people in an
+application. What should be the name of the file where the model for this entity
+is defined?
 
 ```md
 <!-- your response here -->
 ```
 
-What would I name the database table for this entity?
+## Naming Classes
+
+What should be the name of the class that represents this entity?
 
 ```md
 <!-- your response here -->
 ```
 
-## Reference documentation for CRUD
+## Naming Database Tables
+
+What should be the name of the database table for this entity?
+
+```md
+<!-- your response here -->
+```
+
+## Objects and Persistence
 
 Which ActiveRecord method creates new objects? Does this method persist objects
-as rows in the database, or is there another required method for persistence?
+as rows in the database, or is there another method required for persistence?
 
 ```md
 <!-- your response here -->
 ```
 
-Which ActiveRecord method finds all records of a certain type (or entity)?
+## Retrieving Records
+
+Which ActiveRecord method finds all of the records of a certain type (or
+entity)?
 
 ```md
 <!-- your response here -->
 ```
 
-## Explain the role of migrations
+## Rails Console
 
-In your own words, define migrations and explain why developers use them.
+For the subsequent questions, assume that we are in the Rails console (by
+entering `rails console` in the terminal and that the model names follow Rails
+naming conventions.  e.g., The name of the model for a "people" collection would
+be "Person".
 
-```md
-<!-- your response here -->
-```
+## Create
 
-## Reference documentation for migrations
+Create the following movies with the given attributes.
 
-In ActiveRecord Migrations, what is the name of the method the creates a new
-table?
-
-```md
-<!-- your response here -->
-```
-
-What is the name of the method that creates a new column?
-
-```md
-<!-- your response here -->
-```
-
-I want to create a table called `pets` with columns `name` and `breed`, both
-strings. `name` cannot be blank and must be unique. Write the migration you
-would use to satisfy these requirements.
+| id | title | rating |
+| --- | --- | --- |
+| 0 | Battlefield Earth | 2.4 |
+| 1 | Sharknado | 3.3 |
+| 2 | The Core | 5.4 |
 
 ```ruby
-# your response here
+# your answer here
 ```
 
-## Explain the role of seed data
+## Read
 
-In your own words, explain the role of application seed data.
+From the following collection of organisms, find the record with "Red Panda" as
+its `common_name`, find all records of organisms belonging to the `phylum`
+Mollusca, and find the last record.
 
-```md
-<!-- your response here -->
+| id | common_name | binomial_name | phylum |
+| --- | --- | --- | --- |
+| 0 | Mystery Snail | Pomacea bridgesii | Mollusca |
+| 1 | Red Panda | Ailurus fulgens | Chordata |
+| 2 | Stubby Squid | Rossia pacifica | Mollusca |
+
+```ruby
+# your answer here
 ```
 
-Should you use seeds to create data to experiment with during development?
+## Update
 
-```md
-<!-- your response here -->
+From a collection of galaxies, update the `name` attribute of the record with
+the `designation` attribute of "NGC 224" to "Andromeda".
+
+```ruby
+# your answer here
+```
+
+## Delete
+
+From a collection of characters, delete the record with the `id` attribute of 4.
+
+```ruby
+# your answer here
 ```

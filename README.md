@@ -2,10 +2,10 @@
 
 # Rails: ActiveRecord Study
 
-ActiveRecord is a Ruby library that serves as an object-relational-mapper (ORM).
-ORMs allow us to use a language different than SQL to perform CRUD on our data.
-ActiveRecord translates Ruby code into SQL and also creates Ruby objects from
-database rows.
+ActiveRecord is a Ruby library that serves as an object-relational mapping (ORM)
+tool. ORMs allow us to use a language other than SQL to perform CRUD operations
+on our data. ActiveRecord translates Ruby code into SQL and also creates Ruby
+objects from database rows.
 
 ActiveRecord is a part of Rails and is used in the model layer. It allows us to
 use Ruby to manipulate objects without worrying about how those objects are
@@ -13,20 +13,17 @@ persisted.
 
 ## Prerequisites
 
--   [ga-wdi-boston/sql-crud](https://github.com/ga-wdi-boston/sql-crud)
--   [ga-wdi-boston/rails-api](https://github.com/ga-wdi-boston/rails-api)
+-   [An Introduction to Relational Databases](https://github.com/ga-wdi-boston/sql-crud)
+-   [Rails API Overview](https://github.com/ga-wdi-boston/rails-api)
 
 ## Objectives
 
 By the end of this, developers should be able to:
 
 -   Explain the value of an ORM in developing an application.
--   Name model files and classes according to Rails conventions.
+-   Name model files and classes according to Rails's naming conventions.
 -   Reference basic CRUD operations in ActiveRecord using the Rails
     documentation.
--   Explain the role of migrations.
--   Reference documentation for writing migrations.
--   Explain the role of seed data.
 
 ## Instructions
 
