@@ -24,9 +24,6 @@ By the end of this, developers should be able to:
 -   Name model files and classes according to Rails's naming conventions.
 -   Reference basic CRUD operations in ActiveRecord using the Rails
     documentation.
--   Explain the role of migrations.
--   Reference documentation for writing migrations.
--   Explain the role of seed data.
 
 ## Instructions
 
