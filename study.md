@@ -27,21 +27,21 @@ In your own words, define ORM and explain why using an ORM is valuable.
 
 ## Name Model Files and Classes
 
-Suppose I have an entity called "Person" that represents people in my
-application. What would I name the file where I define the model for this
-entity?
+Suppose that there is an entity called "Person" that represents people in an
+application. What should be the name of the file where the model for this entity
+is defined?
 
 ```md
 <!-- your response here -->
 ```
 
-What would I name the class for this entity?
+What should be the name of the class that represents this entity?
 
 ```md
 <!-- your response here -->
 ```
 
-What would I name the database table for this entity?
+What should be the name of the database table for this entity?
 
 ```md
 <!-- your response here -->
@@ -50,13 +50,14 @@ What would I name the database table for this entity?
 ## Reference Documentation for CRUD
 
 Which ActiveRecord method creates new objects? Does this method persist objects
-as rows in the database, or is there another required method for persistence?
+as rows in the database, or is there another method required for persistence?
 
 ```md
 <!-- your response here -->
 ```
 
-Which ActiveRecord method finds all records of a certain type (or entity)?
+Which ActiveRecord method finds all of the records of a certain type (or
+entity)?
 
 ```md
 <!-- your response here -->
