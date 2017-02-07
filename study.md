@@ -22,7 +22,7 @@ In your own words, define ORM and explain why using an ORM is valuable.
 <!-- your response here -->
 ```
 
-## Name Model Files and Xlasses
+## Name Model Files and Classes
 
 Suppose I have an entity called "Person" that represents people in my
 application. What would I name the file where I define the model for this
