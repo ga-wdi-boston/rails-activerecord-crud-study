@@ -22,7 +22,8 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+The Object Relational Mapping system is converts data that is not compatible between certain systems.
+It is valuable for multiple reasons. It makes us not have to use SQL but still makes it easy to use database for storage and querying.
 ```
 
 ## Naming Models
@@ -32,7 +33,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+app/models/person.rb
 ```
 
 ## Naming Classes
@@ -40,7 +41,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 ## Naming Database Tables
@@ -48,7 +49,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+people
 ```
 
 ## Objects and Persistence
@@ -57,7 +58,7 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+create
 ```
 
 ## Retrieving Records
@@ -66,7 +67,7 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+index
 ```
 
 ## Rails Console
@@ -87,7 +88,17 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+class CreatePeople < ActiveRecord::Migration[5.0]
+  def change
+    create_table :people do |t|
+      t.fixnum :id, null: false
+      t.string :title, null: false
+      t.float :rating, null: false
+
+      t.timestamps null: false
+    end
+  end
+end
 ```
 
 ## Read
@@ -103,7 +114,8 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+red_panda = Organism.find_by(common_name: 'Red Panda')
+organisims = Organism.where(phylum: 'Code Artist').last
 ```
 
 ## Update
@@ -112,7 +124,8 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+galaxy = Galaxy.find_by(name: 'designation')
+galaxy.update('NGC 224': 'Andromeda') // not sure about how to make the symbol have a space...
 ```
 
 ## Delete
@@ -120,5 +133,6 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+character = Character.find_by(id: 4)
+character.destroy
 ```
