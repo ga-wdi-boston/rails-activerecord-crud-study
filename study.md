@@ -68,3 +68,57 @@ entity)?
 ```md
 <!-- your response here -->
 ```
+
+## Rails Console
+
+For the subsequent questions, assume that we are in the Rails console (by
+entering `rails console` in the terminal and that the model names follow Rails
+naming conventions.  e.g., The name of the model for a "people" collection would
+be "Person".
+
+## Create
+
+Create the following movies with the given attributes.
+
+| id | title | rating |
+| --- | --- | --- |
+| 0 | Battlefield Earth | 2.4 |
+| 1 | Sharknado | 3.3 |
+| 2 | The Core | 5.4 |
+
+```ruby
+# your answer here
+```
+
+## Read
+
+From the following collection of organisms, find the record with "Red Panda" as
+its `common_name`, find all records of organisms belonging to the `phylum`
+Mollusca, and find the last record.
+
+| id | common_name | binomial_name | phylum |
+| --- | --- | --- | --- |
+| 0 | Mystery Snail | Pomacea bridgesii | Mollusca |
+| 1 | Red Panda | Ailurus fulgens | Chordata |
+| 2 | Stubby Squid | Rossia pacifica | Mollusca |
+
+```ruby
+# your answer here
+```
+
+## Update
+
+From a collection of galaxies, update the `name` attribute of the record with
+the `designation` attribute of "NGC 224" to "Andromeda".
+
+```ruby
+# your answer here
+```
+
+## Delete
+
+From a collection of characters, delete the record with the `id` attribute of 4.
+
+```ruby
+# your answer here
+```
