@@ -22,7 +22,8 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+<!-- ORM is an Object Relationship Model which is helpful in defining
+(as redundant as this sounds) relationships between models, and the data contained in them.  -->
 ```
 
 ## Naming Models
@@ -32,7 +33,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+<!-- A single entity called "Person" would be stored in a file called "People." -->
 ```
 
 ## Naming Classes
@@ -40,7 +41,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+<!-- The class for this entity wuld also be "People." -->
 ```
 
 ## Naming Database Tables
@@ -48,7 +49,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+<!-- "people" -->
 ```
 
 ## Objects and Persistence
@@ -57,7 +58,7 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+<!-- The ActiveRecord "CREATE" creates new objects, which still requires validation to be persistent.  -->
 ```
 
 ## Retrieving Records
