@@ -22,7 +22,8 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM - is an Object Relational Mapper. I calls the database itself. Ruby on Rails uses a Mapper like this called Active Record.
+http://stackoverflow.com/questions/2194915/what-is-orm-as-related-to-ruby-on-rails
 ```
 
 ## Naming Models
@@ -32,7 +33,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+Person_people
 ```
 
 ## Naming Classes
@@ -40,7 +41,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 ## Naming Database Tables
@@ -48,7 +49,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+people
 ```
 
 ## Objects and Persistence
@@ -66,7 +67,7 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+.all .find_by()
 ```
 
 ## Rails Console
@@ -87,7 +88,19 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+movie_ids = %w(0 1 2)
+movie_titles = %w(Battlefield Earth, Sharknado, The Core)
+movie_ratings = %w(2.4 3.3. 5.4)
+
+movies = movie_ids.product(movie_titles).movie_ratings
+
+movies.each do |movie|
+  id = movie[0]
+  title = movie[1]
+  title = movie[2]
+  next if Movie.exists? id: id title: title rating: rating
+  Movie.create!(id: id title: title rating: rating)
+end
 ```
 
 ## Read
@@ -103,7 +116,9 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+Red Panda = Organism.find_by(common_name: 'Red Panda')
+
+phylums = Phylum.all
 ```
 
 ## Update
@@ -112,7 +127,8 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+galaxy = Galaxy.find_by(name:)
+galaxy.update(name: 'designation')
 ```
 
 ## Delete
@@ -120,5 +136,6 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+character = Character.find_by(id:)
+character.destroy
 ```
