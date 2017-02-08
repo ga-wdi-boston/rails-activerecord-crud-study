@@ -22,7 +22,9 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+Aside from the badass-sounding name straight out of a sci fi film, ORM is the
+series of programs needed to pass information between systems that use differing
+types (especially for our use: object-oriented and tables[SQL]).
 ```
 
 ## Naming Models
@@ -32,7 +34,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 ## Naming Classes
@@ -40,7 +42,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 ## Naming Database Tables
@@ -48,7 +50,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+People
 ```
 
 ## Objects and Persistence
@@ -57,7 +59,7 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+create/new. Create will persist, new will not.
 ```
 
 ## Retrieving Records
@@ -66,7 +68,7 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+all
 ```
 
 ## Rails Console
@@ -87,7 +89,9 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+Movie.create(name: "Battlefield Earth", rating: 2.4)
+Movie.create(name: "Sharknado", rating: 3.3)
+Movie.create(name: "The Core", rating: 5.4)
 ```
 
 ## Read
@@ -103,7 +107,8 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+Organisms.where(common_name: 'Red Panda')
+Organisms.where(phylum: 'Mollusca') # mollusks rule!!!!
 ```
 
 ## Update
@@ -112,7 +117,9 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+galaxy = Galaxies.find_by(name: 'Andromeda')
+galaxy.name = "NGC 224"
+galaxy.save
 ```
 
 ## Delete
@@ -120,5 +127,6 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+character = Characters.find_by(id: 4)
+character.destroy # ... did you just make me into a character assassin?
 ```
