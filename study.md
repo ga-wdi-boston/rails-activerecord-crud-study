@@ -22,8 +22,11 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM stands for Object Relational Mapping. It is a technique of connecting models in object oriented programming to a relational database. Is it useful because it allows us to have logical representations of data in code and persist or reference that data in a DB.
 ```
+
+https://en.wikipedia.org/wiki/Object-relational_mapping
+http://guides.rubyonrails.org/active_record_basics.html#object-relational-mapping
 
 ## Naming Models
 
@@ -32,24 +35,30 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+The name of the model should be `person.rb`. Models should be named without puralization.
 ```
+
+http://guides.rubyonrails.org/active_record_basics.html#naming-conventions
 
 ## Naming Classes
 
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+`Person`
 ```
+
+http://guides.rubyonrails.org/active_record_basics.html#naming-conventions
 
 ## Naming Database Tables
 
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+`people`
 ```
+
+http://guides.rubyonrails.org/active_record_basics.html#naming-conventions
 
 ## Objects and Persistence
 
@@ -57,8 +66,10 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+`#create!` will create a new object and save it to the database. If we only wanted to create an instance of the entity but not yet commit it to the DB, we could use `#new`.
 ```
+
+http://guides.rubyonrails.org/active_record_basics.html#create
 
 ## Retrieving Records
 
@@ -66,10 +77,14 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+`all` will find all records for a particular entity.
 ```
 
+http://guides.rubyonrails.org/active_record_basics.html#read
+
 ## Rails Console
+
+All answers below were accomplished using http://guides.rubyonrails.org/active_record_basics.html#crud-reading-and-writing-data
 
 For the subsequent questions, assume that we are in the Rails console (by
 entering `rails console` in the terminal and that the model names follow Rails
@@ -87,7 +102,9 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+Movie.create!(tile: 'Battlefield Earth', rating: 2.4)
+Movie.create!(tile: 'Sharknado', rating: 3.3)
+Movie.create!(tile: 'The Core', rating: 5.4)
 ```
 
 ## Read
@@ -103,7 +120,8 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+Organism.find_by(common_name: 'Red Panda')
+Organism.where(phylum: 'Mollusca').last
 ```
 
 ## Update
@@ -112,7 +130,10 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+# This question is not clear enough about whether we should update all records or a single record returned by the collection.
+Galaxy.where(designation: 'NGC 224').update_all(name: 'Andromeda')
+# OR something like this
+Galaxy.where(designation: 'NGC 224').first.update(name: 'Andromeda')
 ```
 
 ## Delete
@@ -120,5 +141,5 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+Character.find(4).destroy
 ```
