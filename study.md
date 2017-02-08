@@ -22,7 +22,7 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM is a technique that allows for efficient storage and access of objects that are created in an application to the database. With ORM, developers write less code in general and also do not have to write any SQL statements to store and retrieve data from the database. ORM allows the developer to interact with elements in the database using an object-oriented language in the place of SQL.
 ```
 
 ## Naming Models
@@ -32,7 +32,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+person.rb
 ```
 
 ## Naming Classes
@@ -40,7 +40,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 ## Naming Database Tables
@@ -48,7 +48,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+people
 ```
 
 ## Objects and Persistence
@@ -57,7 +57,7 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+The 'new' method creates new objects without saving them to the database. If one wishes to save an object created this way to the database then they can use the 'save' method. If the 'create' method is used instead then a new object will be created and automatically saved to the database.
 ```
 
 ## Retrieving Records
@@ -66,13 +66,13 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+all
 ```
 
 ## Rails Console
 
 For the subsequent questions, assume that we are in the Rails console (by
-entering `rails console` in the terminal and that the model names follow Rails
+entering `rails console` in the terminal) and that the model names follow Rails
 naming conventions.  e.g., The name of the model for a "people" collection would
 be "Person".
 
@@ -87,7 +87,10 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+movie = Movie.create(id: 0, title: "Battlefield Earth", rating: 2.4)
+movie1 = Movie.create(id: 1, title: "Sharknado", rating: 3.3)
+movie2 = Movie.create(id: 2, title: "The Core", rating: 5.4)
+
 ```
 
 ## Read
@@ -103,7 +106,10 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+panda = Organism.find_by(common_name: 'Red Panda')
+mollusk = Organism.find_by(phylum: 'Mollusca')
+last = Organism.last
+
 ```
 
 ## Update
@@ -112,7 +118,14 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+galaxy = Galaxy.find_by(designation: 'NGC 244')
+galaxy.name = "Andromeda"
+galaxy.save
+
+or
+
+galaxy = Galaxy.find_by(designation: 'NGC 244')
+galaxy.update(name: 'Andromeda')
 ```
 
 ## Delete
@@ -120,5 +133,6 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+char = Character.find_by(id: 4)
+char.destroy
 ```
