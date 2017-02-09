@@ -72,7 +72,7 @@ entity)?
 ## Rails Console
 
 For the subsequent questions, assume that we are in the Rails console (by
-entering `bin/rails dbconsole` in the terminal) and that the model names follow
+entering `bin/rails console` in the terminal) and that the model names follow
 Rails's naming conventions.  e.g., The name of the model for a "people"
 collection would be "Person".
 
