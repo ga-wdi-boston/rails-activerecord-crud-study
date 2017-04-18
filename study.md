@@ -22,7 +22,9 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+An ORM essentially maps objects typical of an object-oriented language into a relational database system.  It is
+a good way to store data in a consistent way between the server and the db and enables database queries without SQL and
+with less code in general.
 ```
 
 ## Naming Models
@@ -32,7 +34,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+It would be stored in a file person.rb in the models folder
 ```
 
 ## Naming Classes
@@ -40,7 +42,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+The class should be named Book
 ```
 
 ## Naming Database Tables
@@ -48,7 +50,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+The database table should be named books.
 ```
 
 ## Objects and Persistence
@@ -57,7 +59,7 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+The method create makes new objects and this method persists the object into the db
 ```
 
 ## Retrieving Records
@@ -66,7 +68,7 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+The find_by method gets all of the records of a certain type.
 ```
 
 ## Rails Console
@@ -87,7 +89,7 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+Movie.create({title: 'Battlefield Earth', rating: 2.4}, {title: 'Sharknado', rating: 3.3}, {title: 'The Core', rating: 5.4})
 ```
 
 ## Read
@@ -103,7 +105,9 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+item = organisms.find_by(common_name: 'Red Panda')
+item = organisms.find_by(phylum: 'Mollusca')
+item = organisms.find_by(created_at: desc)
 ```
 
 ## Update
@@ -112,7 +116,8 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+item = galaxies.find_by(designation: 'NGC 224')
+item.name = 'Andromeda'
 ```
 
 ## Delete
@@ -120,5 +125,6 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+item = item.find_by('id = 4')
+item.destroy
 ```
