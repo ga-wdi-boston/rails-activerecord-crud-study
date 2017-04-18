@@ -118,10 +118,8 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-Galaxy.find_each(designation: ('NGC 224'..'Andromeda')) do |galaxy|
-    galaxy.update(name: galaxy.designation)
-end
-
+galaxy = Galaxy.find_by(designation: 'NGC 224')
+galaxy.update(name: 'Andromeda')
 ```
 
 ## Delete
