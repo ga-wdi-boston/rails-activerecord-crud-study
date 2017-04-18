@@ -22,7 +22,9 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+<!-- ORMs are object relational mappings - model-to-database storage exchange
+and are valuable because it is convenient and important to save information
+and be able to access and complete analysis on what is saved from input from user -->
 ```
 
 ## Naming Models
@@ -32,7 +34,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+<!-- person.rb -->
 ```
 
 ## Naming Classes
@@ -40,7 +42,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+<!-- Person.rb -->
 ```
 
 ## Naming Database Tables
@@ -48,7 +50,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+<!-- people.rb -->
 ```
 
 ## Objects and Persistence
@@ -57,7 +59,9 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+<!-- The *new* method creates the object and returns the object but does not
+save to database. The *create* method creates new object, returns that object,
+and then saves the object to database.  -->
 ```
 
 ## Retrieving Records
@@ -66,7 +70,8 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+<!-- The .all() method finds all records of a certain type or entity.
+E.g., people = Person.all -->
 ```
 
 ## Rails Console
@@ -87,7 +92,12 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+#$bin/rails console
+#>pry
+Movie.create({title: 'Battlefield Earth', rating: '2.4'})
+Movie.create({title: 'Sharknado', rating: '3.3'})
+Movie.create({title: 'The Core', rating: '5.4}')
+#these movies are terrible, especially Sharknado and all the subsequent Sharknados
 ```
 
 ## Read
@@ -103,7 +113,9 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+red_panda = Movie.find_by(common_name: 'Red Panda')
+mollusks = Movie.where(phylum: 'Mollusca')
+last_movie = Movie.last
 ```
 
 ## Update
@@ -112,7 +124,8 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+galaxy = Galaxy.find_by(designation: 'NGC 224')
+galaxy.update(name: 'Andromeda')
 ```
 
 ## Delete
@@ -120,5 +133,7 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+character = Character.find(id: '4')
+character.destroy
+#for update and delete questions--do I use plural galaxies=Galaxy... and characters?
 ```
