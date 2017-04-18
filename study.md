@@ -22,7 +22,18 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+Object Relational Mapping or ORM gives our application the ability to map our
+objects to tables in a DB.  It handles the actual writing and reading into the
+DB, there are no SQL statements need to be written by the developer. ORM handles
+modeling of our objects and the dependencies between them. ORM has the ability
+to validate our data as well before it is persisted to the DB.
+
+This is valuable for many reasons, one of which is the ability to quickly
+build an object-oriented data model without knowing the ins and outs of a DB.
+This proven model is time tested(bug free) and allows us to focus on building
+out our application. It is a industry standard framework, making supporting
+our app straight forward.
+
 ```
 
 ## Naming Models
@@ -32,7 +43,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+person.rb
 ```
 
 ## Naming Classes
@@ -40,7 +51,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 ## Naming Database Tables
@@ -48,7 +59,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+persons
 ```
 
 ## Objects and Persistence
@@ -57,7 +68,8 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+create
+This does persist the object and no other method is required.
 ```
 
 ## Retrieving Records
@@ -66,7 +78,7 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+all
 ```
 
 ## Rails Console
@@ -87,7 +99,16 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+When creating an ActiveRecord with .new, .create or create!,
+you cannot set the ID attribute, it is protected
+
+If you don't care what the ID is
+
+Movie.create({title: 'Battefield Earth', rating: 2.4})
+Movie.create({title: 'Sharknado, rating: 3.3})
+Movie.create({title: 'The Core', rating: 5.4})
+
+https://makandracards.com/makandra/14205-allow-setting-the-id-attribute-when-creating-an-activerecord
 ```
 
 ## Read
@@ -103,7 +124,10 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+Organism.find_by(common_name: 'Red Panda')
+Organism.where(phylum: 'Mollusca')
+Organism.last
+
 ```
 
 ## Update
@@ -112,7 +136,10 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+http://stackoverflow.com/questions/12413599/intelligent-plural-always-intelligent
+galaxy = Galaxy(name: 'designation')
+galaxy.'NGC 224', 'Andromeda')
+galaxy.save
 ```
 
 ## Delete
@@ -120,5 +147,7 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+character = Character.find_by(id: '4')
+character.destroy
+
 ```
