@@ -22,7 +22,7 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM (Object Relational Mapping) is a technique that allows objects and relational databases to interact with each other. This is valuable because it reduces the amount of code required because as long as you are following the Rails convention you will receive most of your configuration by default.
 ```
 
 ## Naming Models
@@ -32,7 +32,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+person.rb
 ```
 
 ## Naming Classes
@@ -40,7 +40,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 ## Naming Database Tables
@@ -48,7 +48,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+people
 ```
 
 ## Objects and Persistence
@@ -57,7 +57,8 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+New method will return a new object
+Create method will return object and save it to the db
 ```
 
 ## Retrieving Records
@@ -66,7 +67,7 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+.all
 ```
 
 ## Rails Console
@@ -87,7 +88,10 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+movie1 = Movie.create(id: 0, title: "Battlefield Earth", rating: 2.4)
+movie2 = Movie.create(id: 1, title: "Sharknado", rating: 3.3)
+movie3 = Movie.create(id: 2, title: "The Core", rating: 5.4)
+
 ```
 
 ## Read
@@ -103,7 +107,9 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+red_panda = Organism.find_by(common_name: 'Red Panda')
+mollusca = Organism.where(phylum: 'Mollusca')
+last_record = Organism.last
 ```
 
 ## Update
@@ -112,7 +118,7 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+Galaxy.where(designation: 'NGC 224').update(name: 'Andromeda')
 ```
 
 ## Delete
@@ -120,5 +126,5 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+Character.destroy(id: 4)
 ```
