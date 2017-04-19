@@ -22,7 +22,7 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM, is a technique that connects the rich objects of an application to tables in a relational database management system. Using ORM, the properties and relationships of the objects in an application can be easily stored and retrieved from a database without writing SQL statements directly and with less overall database access code
 ```
 
 ## Naming Models
@@ -32,7 +32,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+The table should be called persons
 ```
 
 ## Naming Classes
@@ -40,7 +40,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 ## Naming Database Tables
@@ -48,7 +48,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+persons
 ```
 
 ## Objects and Persistence
@@ -57,7 +57,7 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+Active Record objects can be created from a hash, a block or have their attributes manually set after creation.  All you have to do is to subclass the ApplicationRecord class. The call the create method. This creates an object (or multiple objects) and saves it to the database, if validations pass. The resulting object is returned whether the object was saved successfully to the database or not.
 ```
 
 ## Retrieving Records
@@ -66,7 +66,10 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+The find method is used. Using the find method, you can retrieve the object corresponding to the specified primary key that matches any supplied options. For example:
+
+# Find the client with primary key (id) 10.
+client = Client.find(10)
 ```
 
 ## Rails Console
@@ -87,7 +90,9 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+pry(main)> Movie.create ({title: 'Battlefield Earth', rating: 2.4}) 
+pry(main)> Movie.create ({title: 'Sharknado', rating: 3.3}) 
+pry(main)> Movie.create ({title: 'The Core', rating: 5.4})   
 ```
 
 ## Read
@@ -103,7 +108,9 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+Was not clear on question. I assumed organisms is the table name?
+organisms.where(common_name: 'Red Panda')
+organisms.where(phylum: 'Mollusca')
 ```
 
 ## Update
@@ -112,7 +119,9 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+Not following this question at all?:
+galaxies.update(name: 'Andromeda')
+
 ```
 
 ## Delete
@@ -120,5 +129,5 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+characters.find_by(id: 4).destroy
 ```
