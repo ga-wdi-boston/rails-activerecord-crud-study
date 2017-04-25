@@ -134,7 +134,6 @@ galaxies.update(designation: 'Andromeda')
 http://guides.rubyonrails.org/active_record_basics.html
 
 ## Delete
-
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
