@@ -23,6 +23,10 @@ In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
 <!-- your response here -->
+ORM is the technique used in computer programming to convert data between
+incompatible data types in object-oriented programming languages. This allows
+the data in objects/hashes to be easily stored and retrieved from a databse
+without the use of actually writing out SQL statements directly
 ```
 
 ## Naming Models
@@ -33,6 +37,8 @@ is defined?
 
 ```md
 <!-- your response here -->
+person.rb
+
 ```
 
 ## Naming Classes
@@ -41,6 +47,7 @@ What should be the name of the class that represents this entity?
 
 ```md
 <!-- your response here -->
+Person
 ```
 
 ## Naming Database Tables
@@ -49,6 +56,8 @@ What should be the name of the database table for this entity?
 
 ```md
 <!-- your response here -->
+people
+
 ```
 
 ## Objects and Persistence
@@ -58,6 +67,7 @@ as rows in the database, or is there another method required for persistence?
 
 ```md
 <!-- your response here -->
+create creates and saves the object to the database
 ```
 
 ## Retrieving Records
@@ -67,6 +77,7 @@ entity)?
 
 ```md
 <!-- your response here -->
+.all method
 ```
 
 ## Rails Console
@@ -88,6 +99,9 @@ Create the following movies with the given attributes.
 
 ```ruby
 # your answer here
+movie = Movie.create(id: 0, title: "Battlefield Earth", rating: 2.4)
+movie_two = Movie.create(id: 1, title: "Sharknado", rating: 3.3)
+movie_three = Movie.create(id: 2, title: "The Core", rating: 5.4)
 ```
 
 ## Read
@@ -104,6 +118,9 @@ Mollusca, and find the last record.
 
 ```ruby
 # your answer here
+red_panda = Organisms.find_by(common_name: "Red Panda")
+phylum = Organisms.where(phylum: "Mollusca").last
+
 ```
 
 ## Update
@@ -113,6 +130,8 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
 # your answer here
+galaxy = Galaxy.find_by(designation: "NGC 224")
+galaxy = Galaxy.updates(name: "Andromeda")
 ```
 
 ## Delete
@@ -121,4 +140,6 @@ From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
 # your answer here
+character = Character.find_by(id: 4)
+Character.destroy
 ```
