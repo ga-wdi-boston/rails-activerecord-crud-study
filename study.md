@@ -14,6 +14,7 @@ material. Instead, digest what you've read and repeat it in your own voice.
     (up to and including chapter 6)
 
 ## Additional Resources
+
 -   [ActiveRecord::Base](http://api.rubyonrails.org/classes/ActiveRecord/Base.html)
 -   [Object-relational mapping - Wikipedia](https://en.wikipedia.org/wiki/Object-relational_mapping)
 
@@ -22,7 +23,7 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM is a way to create a relationship between objects and the database.  The reason its valuable is because we can create Classes that represent our data and work with the classes instead of having to write out all the necessary SQL queries that we would need without an ORM framework.
 ```
 
 ## Naming Models
@@ -32,7 +33,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+person
 ```
 
 ## Naming Classes
@@ -40,7 +41,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+Person
 ```
 
 ## Naming Database Tables
@@ -48,7 +49,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+people
 ```
 
 ## Objects and Persistence
@@ -57,7 +58,8 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+`new` will create a new object
+`create` will create a new object and save it to the database
 ```
 
 ## Retrieving Records
@@ -66,7 +68,7 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+all
 ```
 
 ## Rails Console
@@ -80,14 +82,16 @@ collection would be "Person".
 
 Create the following movies with the given attributes.
 
-| id | title | rating |
-| --- | --- | --- |
-| 0 | Battlefield Earth | 2.4 |
-| 1 | Sharknado | 3.3 |
-| 2 | The Core | 5.4 |
+| id  | title             | rating |
+| --- | ----------------- | ------ |
+| 0   | Battlefield Earth | 2.4    |
+| 1   | Sharknado         | 3.3    |
+| 2   | The Core          | 5.4    |
 
 ```ruby
-# your answer here
+Person.create({title: 'Battlefield Earth', rating: 2.4})
+Person.create({title: 'Sharknado', rating: 3.3})
+Person.create({title: 'The Core', rating: 5.4})
 ```
 
 ## Read
@@ -96,14 +100,16 @@ From the following collection of organisms, find the record with "Red Panda" as
 its `common_name`, find all records of organisms belonging to the `phylum`
 Mollusca, and find the last record.
 
-| id | common_name | binomial_name | phylum |
-| --- | --- | --- | --- |
-| 0 | Mystery Snail | Pomacea bridgesii | Mollusca |
-| 1 | Red Panda | Ailurus fulgens | Chordata |
-| 2 | Stubby Squid | Rossia pacifica | Mollusca |
+| id  | common_name   | binomial_name     | phylum   |
+| --- | ------------- | ----------------- | -------- |
+| 0   | Mystery Snail | Pomacea bridgesii | Mollusca |
+| 1   | Red Panda     | Ailurus fulgens   | Chordata |
+| 2   | Stubby Squid  | Rossia pacifica   | Mollusca |
 
 ```ruby
-# your answer here
+Person.find_by(common_name: 'Red Panda')
+Person.where(phylum: 'Mollusca')
+Person.last
 ```
 
 ## Update
@@ -112,7 +118,9 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+galaxy = Galaxy.find_by(designation: 'NGC 224')
+galaxy.name = 'Andromeda'
+galaxy.save
 ```
 
 ## Delete
@@ -120,5 +128,6 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+character = Character.find_by(id: 4)
+character.destroy
 ```
