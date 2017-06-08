@@ -22,7 +22,8 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+ORM - Object Relational Mapping- connect application objects to tables in the Relational database. ORM also allows the storage and retrieval of these objects from the database without requiring SQL coding.
+
 ```
 
 ## Naming Models
@@ -32,7 +33,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+The model class name should follow the Ruby conventions, using the CamelCase form, while the table name must contain the words separated by underscores
 ```
 
 ## Naming Classes
@@ -40,7 +41,9 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+Per naming conventions,
+the model/Class should be "Person";
+Table/Schema should be "people".
 ```
 
 ## Naming Database Tables
@@ -48,7 +51,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+the name of the database table should be pluralized and in lower case.
 ```
 
 ## Objects and Persistence
@@ -57,7 +60,7 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+Create an active record model by creating a subclass of the ApplcationRecord class. This creates a model and maps it to the same named table in the database.
 ```
 
 ## Retrieving Records
@@ -66,7 +69,7 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+the api with *.all will allow access to all records
 ```
 
 ## Rails Console
@@ -87,7 +90,10 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+Person.create({ title: 'Battlefield Earth', rating: '2.4',})
+Person.create({ title: 'Sharknado', rating: '3.3',})
+Person.create({ title: 'The Core', rating: '5.4',})
+
 ```
 
 ## Read
@@ -103,7 +109,7 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+phylum = Organism.find_by(common_name: 'phylum')
 ```
 
 ## Update
@@ -112,7 +118,8 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+galaxy = Galaxy.find_by(name : 'Andromeda')
+galaxy.update(designation: 'NGC 224')
 ```
 
 ## Delete
@@ -120,5 +127,6 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+character = Character.find_by(id: 4)
+character.destroy
 ```
