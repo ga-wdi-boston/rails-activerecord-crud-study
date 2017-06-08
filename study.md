@@ -22,7 +22,8 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+object Relational map
+where the object is the OOP language (such as Java or Ruby). The relational part is the DB (relational db). the map is the conversion between objects and tables
 ```
 
 ## Naming Models
@@ -32,7 +33,7 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+person.rb
 ```
 
 ## Naming Classes
@@ -40,7 +41,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+People
 ```
 
 ## Naming Database Tables
@@ -48,7 +49,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+people
 ```
 
 ## Objects and Persistence
@@ -57,7 +58,7 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+create creates new objects and persists them
 ```
 
 ## Retrieving Records
@@ -66,7 +67,7 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+index
 ```
 
 ## Rails Console
@@ -87,7 +88,9 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+  Movie.create(0, 'Battlefield Earth', '2.4')
+  Movie.create(1, 'Sharknado', '3.3')
+  Movie.create(1, 'The Core', '5.4')
 ```
 
 ## Read
@@ -112,7 +115,10 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+UPDATE * FROM galaxies
+SET designation = Andromeda
+WHERE designation = NGC 224
+
 ```
 
 ## Delete
@@ -120,5 +126,6 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+DELETE * FROM characters
+where ID = 4
 ```
