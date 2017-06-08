@@ -87,7 +87,18 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+class Movie
+  def initialize(id, title, rating)
+    @id = id
+    @title = title
+    @rating = rating
+  end
+end
+
+battlefield_earth = Movie.new(0, 'Battlefield Earth', 2.4)
+sharknado = Movie.new(1, 'Sharknado', 3.3)
+the_core = Movie.new(2, 'The Core', 5.4)
+
 ```
 
 ## Read
@@ -103,7 +114,34 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+class Animal
+  def initialize(id, common_name, binomial_name, phylum)
+    @id = id
+    @common_name = common_name
+    @binomial_name = binomial_name
+    @phylum = phylum
+  end
+end
+
+class Access
+    ANIMALS = [
+      Animal.new(0, 'Mystery Snail', 'Pomacea bridgesii', 'Mollusca'),
+      Animal.new(1, 'Red Panda', 'Ailurus fulgens', 'Chordata'),
+      Animal.new(2, 'Stubby Squid', 'Rossia pacifica', 'Mollusca')
+    ].map(&:freeze)
+
+  def get_by_name(name)
+    ANIMALS.select do |animal_name|
+      animal_name.common_name == name
+    end
+  end
+
+    def get_by_phylum(especies)
+      ANIMALS.select do |animal_phylum|
+        animal_phylum.phylum = especies
+      end
+    end
+end
 ```
 
 ## Update
