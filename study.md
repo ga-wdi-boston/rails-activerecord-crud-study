@@ -23,6 +23,7 @@ In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
 <!-- your response here -->
+ORMs connect objects of an app to tables in order to save these objects in a database without directly writing SQL.
 ```
 
 ## Naming Models
@@ -33,6 +34,7 @@ is defined?
 
 ```md
 <!-- your response here -->
+Person_Model
 ```
 
 ## Naming Classes
@@ -41,6 +43,7 @@ What should be the name of the class that represents this entity?
 
 ```md
 <!-- your response here -->
+Person
 ```
 
 ## Naming Database Tables
@@ -49,6 +52,7 @@ What should be the name of the database table for this entity?
 
 ```md
 <!-- your response here -->
+people
 ```
 
 ## Objects and Persistence
@@ -58,6 +62,8 @@ as rows in the database, or is there another method required for persistence?
 
 ```md
 <!-- your response here -->
+NEW -- creates new objects without being saved.
+CREATE -- creates new objects and saves them in the database.
 ```
 
 ## Retrieving Records
@@ -67,6 +73,7 @@ entity)?
 
 ```md
 <!-- your response here -->
+WHERE -- find all the records of a specified criteria.
 ```
 
 ## Rails Console
@@ -88,6 +95,9 @@ Create the following movies with the given attributes.
 
 ```ruby
 # your answer here
+movie0 = Movie.create(title: "Battlefield Earth", rating: 2.4)
+movie1 = Movie.create(title: "Sharknado", rating: 3.3)
+movie2 = Movie.create(title: "The Core", rating: 5.4)
 ```
 
 ## Read
@@ -104,6 +114,9 @@ Mollusca, and find the last record.
 
 ```ruby
 # your answer here
+organism = Organism.find_by(common_name: 'Red Panda')
+organism = Organism.find_by(phylum: 'Mollusca')
+organism = Organism.last
 ```
 
 ## Update
@@ -113,6 +126,8 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
 # your answer here
+galaxy = Galaxy.find_by(designation: 'NGC 224')
+galaxy.update(designation: 'Andromeda')
 ```
 
 ## Delete
@@ -121,4 +136,6 @@ From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
 # your answer here
+movie = Movies.find_by(id: 4)
+movie.destroy
 ```
