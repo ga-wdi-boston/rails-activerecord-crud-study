@@ -22,7 +22,9 @@ material. Instead, digest what you've read and repeat it in your own voice.
 In your own words, define ORM and explain why using an ORM is valuable.
 
 ```md
-<!-- your response here -->
+
+Object relational mapping is valuable for organizing data types within a database. ORM involves creating data objects that carry multiple instances of it such as a phone numbers table with multiple phone numbers within it. Programmers can leverage ORM's to create relationships across multiple different data types, so when called, one can view all the data types that are affiliated with a certain object.
+
 ```
 
 ## Naming Models
@@ -32,7 +34,9 @@ application. What should be the name of the file where the model for this entity
 is defined?
 
 ```md
-<!-- your response here -->
+
+The file would be called people.rb and it would be located in the models folder.
+
 ```
 
 ## Naming Classes
@@ -40,7 +44,7 @@ is defined?
 What should be the name of the class that represents this entity?
 
 ```md
-<!-- your response here -->
+The class should be named person.
 ```
 
 ## Naming Database Tables
@@ -48,7 +52,7 @@ What should be the name of the class that represents this entity?
 What should be the name of the database table for this entity?
 
 ```md
-<!-- your response here -->
+The name of the database table for this entity should be called people.
 ```
 
 ## Objects and Persistence
@@ -57,7 +61,11 @@ Which ActiveRecord method creates new objects? Does this method persist objects
 as rows in the database, or is there another method required for persistence?
 
 ```md
-<!-- your response here -->
+Object.new
+
+persistent method:
+
+user = User.create(name: "David", occupation: "Code Artist")
 ```
 
 ## Retrieving Records
@@ -66,7 +74,8 @@ Which ActiveRecord method finds all of the records of a certain type (or
 entity)?
 
 ```md
-<!-- your response here -->
+The ".find()" returns all records. An example of this would be example.find()
+
 ```
 
 ## Rails Console
@@ -87,7 +96,10 @@ Create the following movies with the given attributes.
 | 2 | The Core | 5.4 |
 
 ```ruby
-# your answer here
+Movie.new(title: "Battlefield Earth", rating: "2.4")
+Movie.new(title: "Sharknado", rating: "3.3")
+Movie.new(title: "The Core", rating: "5.4")
+
 ```
 
 ## Read
@@ -103,7 +115,9 @@ Mollusca, and find the last record.
 | 2 | Stubby Squid | Rossia pacifica | Mollusca |
 
 ```ruby
-# your answer here
+
+Organism.find(1)
+
 ```
 
 ## Update
@@ -112,7 +126,11 @@ From a collection of galaxies, update the `name` attribute of the record with
 the `designation` attribute of "NGC 224" to "Andromeda".
 
 ```ruby
-# your answer here
+
+galaxy = Galaxy.find_by(designation: 'NGC 224')
+galaxy.designation = 'Andromeda'
+galaxy.save
+
 ```
 
 ## Delete
@@ -120,5 +138,6 @@ the `designation` attribute of "NGC 224" to "Andromeda".
 From a collection of characters, delete the record with the `id` attribute of 4.
 
 ```ruby
-# your answer here
+character = Character.find_by(4)
+character.destroy
 ```
